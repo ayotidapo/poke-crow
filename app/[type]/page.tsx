@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 
 const Home: React.FC<ServerProps> = async ({ params }) => {
   const { type = 'normal' } = params;
-  console.log(type, 'jgiuhtogu guhguhguhguhgu', params);
+
   try {
     const {
       data: { results },
