@@ -20,7 +20,7 @@ bun dev
 
 ## Issues
 
-One known issue is that one of the APIs used in the project, the get pokemon by type/category is not paginated, causing all the pokemon retrieved at once and a custom logic is written to perform the pagination feature locally. This is a potential performance and usability issues with large datasets.
+One known issue is that one of the APIs used in the project, the get pokemon by type/category does not support pagination, causing all the pokemon retrieved at once but a custom logic is written in place of that in this project to perform the pagination feature. This is a potential performance and usability issues with large datasets.
 
 ## Deployment on Vercel
 
