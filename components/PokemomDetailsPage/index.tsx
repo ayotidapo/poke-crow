@@ -40,7 +40,7 @@ const DetailsPage: React.FC<Props> = ({ data }) => {
             <Image src={data?.image || ''} alt='' width={200} height={200} />
           </div>
         </section>
-        <section className='flex gap-4 my-10 md:flex-row  xxs:flex-col'>
+        <section className='flex gap-4 my-10 flex-wrap'>
           <div className='flex-1 '>
             <h6 className='text-amber-500 font-semibold'>Height</h6>
             <span>{data.height}</span>
