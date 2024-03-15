@@ -1,0 +1,9 @@
+.details {
+  @apply flex justify-center items-start;
+}
+
+.image_div {
+  @apply border shadow-sm xxs:mb-5 md:mb-0;
+  background-size: cover;
+  background-image: url('/blur.jpeg')
+}
