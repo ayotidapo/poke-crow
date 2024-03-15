@@ -89,8 +89,8 @@ const CategoryPage: React.FC<Props> = ({ categories, pokemons }) => {
 
   return (
     <div className='category_'>
-      <div className=' p-5 pr-0 bg-[#A5F3FC] mb-4'>
-        <div className='w-[80%] '>
+      <div className=' md:p-8 xxs:p-4 bg-[#A5F3FC] mb-4'>
+        <div className='md:w-[80%] xxs:w-full '>
           <h2 className='mb-3 text-2xl text-slate-700'>Categories</h2>
           <div className='flex flex-wrap   gap-4'>
             {categories.map(({ name }, i) => (
@@ -105,7 +105,7 @@ const CategoryPage: React.FC<Props> = ({ categories, pokemons }) => {
           </div>
         </div>
       </div>
-      <section className='md:w-[80%] flex flex-col mx-auto xxs:w-full'>
+      <section className='md:w-[80%] flex flex-col mx-auto xxs:w-full p-2.5'>
         <form className='flex  self-end my-3 rounded-md overflow-hidden border border-slate-100'>
           <input
             className='input-search'

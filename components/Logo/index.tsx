@@ -8,9 +8,9 @@ const Logo = () => {
   return (
     <div onClick={() => router.push(`/normal`)}>
       <Image
-        src='/logo.png'
+        src='/logo.jpeg'
         alt='logo'
-        width={100}
+        width={120}
         height={50}
         className='cursor-pointer'
       />
