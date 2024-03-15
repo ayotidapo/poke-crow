@@ -37,7 +37,7 @@ const CategoryPage: React.FC<Props> = ({ categories, pokemons }) => {
     const typePokemons = pokemons.pokemon;
 
     const filterPokemon = typePokemons.slice(offset, limitEnd);
-    console.log({ typePokemons, filterPokemon });
+
     setState((state) => ({
       ...state,
       allpokemons: typePokemons,
@@ -52,7 +52,6 @@ const CategoryPage: React.FC<Props> = ({ categories, pokemons }) => {
     const limitEnd = page * limit;
     paginateFn(offset, limitEnd);
     window.scrollTo(0, -70);
-    console.log(selected);
   };
 
   const noOfPage = Math.ceil(allpokemons.length / Number(limit));
