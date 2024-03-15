@@ -15,7 +15,6 @@ const Home: React.FC<ServerProps> = async ({ params }) => {
 
     return <CategoryPage categories={results} pokemons={data} />;
   } catch (e) {
-    console.log(e);
     notFound();
   }
 };

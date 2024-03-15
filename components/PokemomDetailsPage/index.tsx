@@ -69,7 +69,7 @@ const DetailsPage: React.FC<Props> = ({ data }) => {
         </p>
         <section className='mt-10'>
           <h2 className='font-semibold text-rose-800'>STATS:</h2>
-          <div className='flex gap-4'>
+          <div className='flex gap-4 md:flex-row xxs:flex-col'>
             {data.stats.map(({ name, value }) => (
               <div key={name}>
                 <span className='capitalize text-amber-600 '>{name} </span>:{' '}
