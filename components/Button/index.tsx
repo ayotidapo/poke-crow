@@ -4,6 +4,7 @@ import './button.css';
 interface Props {
   children: React.ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement> | undefined) => void;
+  disabled?: boolean;
   type?: 'submit' | 'button' | 'reset';
   className?: string;
 }

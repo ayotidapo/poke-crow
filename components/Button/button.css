@@ -1,3 +1,8 @@
 .btn {
-  @apply inline-flex items-center justify-center active:scale-75 transition-transform;
+  @apply inline-flex items-center justify-center active:scale-75 transition-transform disabled:scale-100;
+}
+.btn:disabled {
+  &:hover {
+    @apply cursor-not-allowed;
+  }
 }

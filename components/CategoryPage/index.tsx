@@ -24,6 +24,7 @@ const CategoryPage: React.FC<Props> = ({ categories, pokemons }) => {
   const { setState, state } = useContext(PokemonContext);
   const router = useRouter();
   const [searchValue, setSearchValue] = useState('');
+  const [searching, setSearching] = useState(false);
   let pathname = usePathname();
 
   const { allpokemons, filtered } = state;
@@ -64,6 +65,7 @@ const CategoryPage: React.FC<Props> = ({ categories, pokemons }) => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent> | undefined
   ) => {
     e?.preventDefault();
+    setSearching(true);
     try {
       const { data } = await getPokemonByName(searchValue);
       const { id, name } = data;
@@ -79,12 +81,14 @@ const CategoryPage: React.FC<Props> = ({ categories, pokemons }) => {
           },
         ],
       }));
+      setSearching(false);
     } catch (e) {
       setState((state) => ({
         ...state,
         filtered: [],
       }));
     }
+    setSearching(false);
   };
 
   return (
@@ -111,8 +115,12 @@ const CategoryPage: React.FC<Props> = ({ categories, pokemons }) => {
             className='input-search'
             onChange={(e) => setSearchValue(e.target.value)}
           />
-          <Button onClick={onSearch} className='search_btn'>
-            search
+          <Button
+            onClick={onSearch}
+            className='search_btn'
+            disabled={searching || !searchValue}
+          >
+            {searching ? 'loading...' : 'search'}
           </Button>
         </form>
 
@@ -134,19 +142,21 @@ const CategoryPage: React.FC<Props> = ({ categories, pokemons }) => {
         </div>
       </section>
       <div className='pgnt_wrapper'>
-        <ReactPaginate
-          breakLabel='...'
-          nextLabel='Next  >'
-          onPageChange={onChangePage}
-          pageRangeDisplayed={2}
-          pageCount={noOfPage}
-          activeClassName={'activepagelink'}
-          previousLabel='<  Prev'
-          disabledClassName='dizabled'
-          nextLinkClassName={'prev_next'}
-          previousLinkClassName={'prev_next'}
-          renderOnZeroPageCount={null}
-        />
+        {filtered.length >= limit && (
+          <ReactPaginate
+            breakLabel='...'
+            nextLabel='Next  >'
+            onPageChange={onChangePage}
+            pageRangeDisplayed={2}
+            pageCount={noOfPage}
+            activeClassName={'activepagelink'}
+            previousLabel='<  Prev'
+            disabledClassName='dizabled'
+            nextLinkClassName={'prev_next'}
+            previousLinkClassName={'prev_next'}
+            renderOnZeroPageCount={null}
+          />
+        )}
       </div>
     </div>
   );
